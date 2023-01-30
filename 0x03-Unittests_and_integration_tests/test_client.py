@@ -84,3 +84,8 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
                   }
         cls.get_patcher = patch('requests.get', **config)
         cls.mock = cls.get_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        """method called after tests in an individual class have run"""
+        cls.get_patcher.stop()
